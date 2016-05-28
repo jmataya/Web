@@ -68,16 +68,24 @@ Vagrant.configure(2) do |config|
 
   # Provision essentials first
   config.vm.provision "shell", privileged: true, inline: <<-SHELL
-    apt-get update
+    echo "Installing apt packages"
+    apt-get -qq autoremove # Not sure why we start with unnecessary packages
+    apt-get -qq update
     apt-get install -y build-essential
   SHELL
 
   # Set up Node Version Manager (nvm) & install Node
   # -- Note: nvm will reference .nvmrc for version
   config.vm.provision "shell", privileged: false, inline: <<-SHELL
-    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
+    echo "Installing NVM"
     export NVM_DIR="/home/vagrant/.nvm"
-    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-    cd code && nvm install > /dev/null
+    if ! [ -d "$NVM_DIR" ]; then
+      curl -s -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | sh
+    fi
+    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
+    echo "Installing Node"
+    cd code
+    nvm install 2>/dev/null # Unfortunately need to redirect stderr to remove the annoying progress bar
   SHELL
 end
