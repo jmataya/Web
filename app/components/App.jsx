@@ -1,11 +1,16 @@
 import React from 'react';
+import { Router, Route, Link, hashHistory } from 'react-router';
+
+import Home from './pages/Home.jsx';
+import About from './pages/About.jsx';
 
 class App extends React.Component {
   render() {
     return (
-      <div>
-        Hello World!
-      </div>
+      <Router history={ hashHistory }>
+        <Route path="/" component={ Home }></Route>
+        <Route path="/about" component={ About }></Route>
+      </Router>
     )
   }
 }
