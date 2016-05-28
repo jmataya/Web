@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, Route, Link, hashHistory } from 'react-router';
+import { Router, Route, hashHistory } from 'react-router';
 
 import Home from './pages/Home.jsx';
 import About from './pages/About.jsx';
