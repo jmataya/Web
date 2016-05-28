@@ -1,0 +1,5 @@
+# Ignore Vagrant directory
+.vagrant/
+
+# Ignore editor-specific files (e.g. vim, subl, etc.)
+*.sublime-*
