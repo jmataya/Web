@@ -3,3 +3,6 @@
 
 # Ignore editor-specific files (e.g. vim, subl, etc.)
 *.sublime-*
+
+# Ignore compiled or generated project files
+node_modules/

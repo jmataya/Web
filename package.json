@@ -1,0 +1,18 @@
+{
+  "name": "top-drawer",
+  "version": "1.0.0",
+  "description": "Men's clothing and accessories fit for your top drawer",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/TopDrawer/Web.git"
+  },
+  "main": "index.js",
+  "scripts": {
+  },
+  "author": "Steve DeWald",
+  "license": "UNLICENSED",
+  "dependencies": {
+  },
+  "devDependencies": {
+  }
+}

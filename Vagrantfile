@@ -72,6 +72,7 @@ Vagrant.configure(2) do |config|
     apt-get -qq autoremove # Not sure why we start with unnecessary packages
     apt-get -qq update
     apt-get install -y build-essential
+    apt-get install -y git
   SHELL
 
   # Set up Node Version Manager (nvm) & install Node
@@ -87,5 +88,9 @@ Vagrant.configure(2) do |config|
     echo "Installing Node"
     cd code
     nvm install 2>/dev/null # Unfortunately need to redirect stderr to remove the annoying progress bar
+
+    echo "Installing NPM packages"
+    npm set progress=false
+    npm install
   SHELL
 end
