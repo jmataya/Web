@@ -63,6 +63,9 @@ Vagrant.configure(2) do |config|
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
 
+  # https://github.com/mitchellh/vagrant/issues/1673
+  config.ssh.shell = "bash -c 'BASH_ENV=/etc/profile exec bash'"
+
   # Provision essentials first
   config.vm.provision "shell", privileged: true, inline: <<-SHELL
     apt-get update
