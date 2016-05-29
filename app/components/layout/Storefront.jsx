@@ -1,21 +1,27 @@
 import React from 'react';
 import { Link } from 'react-router';
 
+import styles from './Storefront.css';
+
 import Nav from './Nav.jsx';
 
 class Storefront extends React.Component {
   render() {
     return (
-      <div styleName="container">
-        <div styleName="content-container">
-          <div styleName="storefront">
-            <div styleName="head">
-              <div styleName="logo-link">
+      <div className={ styles.container }>
+        <div className={ styles['content-container'] }>
+          <div className={ styles.storefront }>
+            <div className={ styles.head }>
+              { /* <div className={ styles.hamburger } onClick={ props.toggleSidebar }> */ }
+              <div className={ styles.hamburger }>
+                { /* <Icon name="fc-hamburger" styleName="head-icon"/> */ }
+              </div>
+              <div className={ styles['logo-link'] }>
                 <Link to="/">
-                  { /* <Icon styleName="logo" name="fc-top-drawer-logo" /> */ }
+                  { /* <Icon className="logo" name="top-drawer-logo" /> */ }
                 </Link>
               </div>
-              <div styleName="tools">
+              <div className={ styles.tools }>
                 { /* <UserTools path={props.location.pathname} /> */ }
               </div>
             </div>
@@ -23,15 +29,12 @@ class Storefront extends React.Component {
             {this.props.children}
           </div>
         </div>
-        <div styleName="footer">
+        <div className={ styles.footer }>
           { /* <Footer /> */ }
         </div>
-        { /*
-          <div styleName="mobile-sidebar">
-            <Sidebar path={props.location.pathname} />
-          </div>
-          */
-        }
+        <div className={ styles['mobile-sidebar']}>
+          { /* <Sidebar path={props.location.pathname} /> */ }
+        </div>
         <div>
           { /* <Cart /> */ }
         </div>

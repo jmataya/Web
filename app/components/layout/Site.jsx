@@ -11,7 +11,7 @@ import styles from './Site.css';
 class Site extends React.Component {
   render() {
     return (
-      <div id={ styles.container }>
+      <div className={ styles.site }>
         { this.props.children }
       </div>
     )
