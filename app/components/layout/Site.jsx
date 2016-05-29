@@ -6,10 +6,12 @@
 
 import React from 'react';
 
+import styles from './Site.css';
+
 class Site extends React.Component {
   render() {
     return (
-      <div styleName="site">
+      <div id={ styles.container }>
         { this.props.children }
       </div>
     )

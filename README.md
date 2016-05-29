@@ -1,12 +1,13 @@
 # Top Drawer / Web
 Web is our public-facing web storefront.
 
-## Development Environment Setup
+## Setup
+### Development Environment
 Web uses [Vagrant](https://www.vagrantup.com/) to manage the development environement.  Install Vagrant if you haven't already and then run `vagrant up` in the project's root folder.  The first time this is run Vagrant will provision the development environment for you.
 
 Once the Vagrant virtual machine is up you can SSH into it using `vagrant ssh`.
 
-## Running The App
+### Running The App
 SSH into your Vagrant virtual machine and then run:
 ```sh
 cd code
@@ -24,3 +25,7 @@ If you want this functionality when running Webpack inside a virtual machine, yo
 Instead, we use rsync to monitor filesystem changes on our host and sync files to our guest.  Virtualbox includes a handy command-line tool just for this purpose: `vagrant rsync-auto`.  Simply run it after you boot up your virtual machine with `vagrant up` and it will continue to sync changes between the host and guest filesystems.
 
 Read more about `vagrant rsync-auto` here: [Vagrant: rsync-auto command](https://www.vagrantup.com/docs/cli/rsync-auto.html).
+
+## Documentation
+### CSS Modules
+TODO
