@@ -8,7 +8,7 @@
   },
   "main": null,
   "scripts": {
-    "start": "$(npm bin)/webpack-dev-server --colors --progress --hot --inline --watch-poll"
+    "start": "$(npm bin)/webpack-dev-server --colors --progress --hot --inline"
   },
   "author": "Steve DeWald",
   "license": "UNLICENSED",
