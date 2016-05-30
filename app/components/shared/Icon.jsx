@@ -3,39 +3,32 @@
  */
 
 import React from 'react';
+import InlineSVG from 'svg-inline-react';
 
 class Icon extends React.Component {
   constructor(props) {
     super(props);
 
-    this.name = `#${props.name}-icon`;
     this.size = props.size || 's';
-    this.className = `icon icon--${name} icon--${size}${props.className ? " " + props.className : ""}`;
-
-    this.useTag = `<use xlink:href=${name} />`;
-    this.svgNode = (
-      <svg className="icon__cnt" dangerouslySetInnerHTML={{__html: useTag }}/>
-    );
-
-    if (className.indexOf('spinner') > -1) {
-      this.svgNode = <div className="icon__spinner">{this.svgNode}</div>
-    }
+    this.className = `icon icon--${this.size}${props.className ? " " + props.className : ""}`;
   }
 
   render() {
-    return (
-      <div className={this.className} onClick={this.props.onClick}>
-        {this.svgNode}
-      </div>
-    );
+    const node = (<InlineSVG {...this.props} className={this.className} src={this.props.svg} />);
+
+    if (this.className.indexOf('spinner') > -1) {
+      return <div className="icon__spinner">{node}</div>
+    }
+    return node;
   }
 };
 
 Icon.propTypes = {
-  size: React.propTypes.oneOf(['s', 'm', 'l', 'xl', 'xxl']);
-  name: React.propTypes.string.isRequired,
-  className: React.propTypes.string,
-  onClick: React.propTypes.func,
+  svg: React.PropTypes.string.isRequired,
+  element: React.PropTypes.string,
+  size: React.PropTypes.oneOf(['s', 'm', 'l', 'xl', 'xxl']),
+  className: React.PropTypes.string,
+  onClick: React.PropTypes.func,
 };
 
 export default Icon;

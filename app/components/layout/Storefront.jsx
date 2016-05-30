@@ -3,36 +3,37 @@ import { Link } from 'react-router';
 
 import styles from './Storefront.css';
 
+import Logo from './Logo/Logo.jsx';
+import Hamburger from './Hamburger/Hamburger.jsx';
+import UserTools from './UserTools/UserTools.jsx';
 import Nav from './Nav.jsx';
+import Footer from './Footer/Footer.jsx';
 
 class Storefront extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  toggleSidebar() {
+
+  }
+
   render() {
     return (
-      <div className={ styles.container }>
-        <div className={ styles['content-container'] }>
-          <div className={ styles.storefront }>
-            <div className={ styles.head }>
-              { /* <div className={ styles.hamburger } onClick={ props.toggleSidebar }> */ }
-              <div className={ styles.hamburger }>
-                { /* <Icon name="fc-hamburger" styleName="head-icon"/> */ }
-              </div>
-              <div className={ styles['logo-link'] }>
-                <Link to="/">
-                  { /* <Icon className="logo" name="top-drawer-logo" /> */ }
-                </Link>
-              </div>
-              <div className={ styles.tools }>
-                { /* <UserTools path={props.location.pathname} /> */ }
-              </div>
+      <div className={styles.container}>
+        <div className={styles.contentContainer}>
+          <div className={styles.storefront}>
+            <div className={styles.head}>
+              <Hamburger className={styles.hamburger} onClick={this.toggleSidebar} />
+              <Logo className={styles.logo} />
+              <UserTools className={styles.userTools} />
             </div>
             <Nav />
             {this.props.children}
           </div>
         </div>
-        <div className={ styles.footer }>
-          { /* <Footer /> */ }
-        </div>
-        <div className={ styles['mobile-sidebar']}>
+        <Footer className={styles.footer} />
+        <div className={styles.mobileSidebar}>
           { /* <Sidebar path={props.location.pathname} /> */ }
         </div>
         <div>
