@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-import styles from './Storefront.css';
+import Logo from 'layout/logo';
+import Hamburger from 'layout/hamburger';
+import UserTools from 'layout/user-tools';
+import Navigation from 'layout/navigation';
+import Footer from 'layout/footer';
 
-import Logo from './Logo/Logo.jsx';
-import Hamburger from './Hamburger/Hamburger.jsx';
-import UserTools from './UserTools/UserTools.jsx';
-import Nav from './Nav.jsx';
-import Footer from './Footer/Footer.jsx';
+import styles from './storefront.css';
 
 class Storefront extends React.Component {
   constructor(props) {
@@ -28,7 +28,7 @@ class Storefront extends React.Component {
               <Logo className={styles.logo} />
               <UserTools className={styles.userTools} />
             </div>
-            <Nav />
+            <Navigation className={styles.navigation} />
             {this.props.children}
           </div>
         </div>

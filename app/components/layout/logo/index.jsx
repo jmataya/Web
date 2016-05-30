@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-import Icon from '../../shared/Icon.jsx';
-import topDrawerLogo from './Logo.svg';
-import styles from './Logo.css';
+import Icon from 'shared/icon';
+
+import styles from './logo.css';
+import topDrawerLogo from './logo.svg';
 
 class Logo extends React.Component {
   render() {

@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-class Nav extends React.Component {
+import styles from './navigation.css';
+
+class Navigation extends React.Component {
   render() {
     return (
-      <nav>
+      <nav className={this.props.className}>
         <Link activeClass="active" to="/">Home</Link> |
         <Link activeClass="active" to="/about">About Us</Link> |
         <Link activeClass="active" to="/terms">Terms of Service</Link>
@@ -13,4 +15,4 @@ class Nav extends React.Component {
   }
 }
 
-export default Nav;
+export default Navigation;

@@ -1,8 +1,9 @@
 import React from 'react';
 
-import Icon from '../../shared/Icon.jsx';
-import hamburgerIcon from './Hamburger.svg';
-import styles from './Hamburger.css';
+import Icon from 'shared/icon';
+
+import styles from './hamburger.css';
+import hamburgerIcon from './hamburger.svg';
 
 class Hamburger extends React.Component {
   render() {

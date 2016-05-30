@@ -6,7 +6,7 @@
 
 import React from 'react';
 
-import styles from './Site.css';
+import styles from './site.css';
 
 class Site extends React.Component {
   render() {

@@ -2,12 +2,13 @@ import React from 'react';
 import { Link } from 'react-router';
 import classNames from 'classnames';
 
-import Icon from '../../shared/Icon.jsx';
-import instagramIcon from './Instagram.svg';
-import facebookIcon from './Facebook.svg';
-import twitterIcon from './Twitter.svg';
-import pinterestIcon from './Pinterest.svg';
-import style from './Footer.css';
+import Icon from 'shared/icon';
+
+import style from './footer.css';
+import instagramIcon from './instagram.svg';
+import facebookIcon from './facebook.svg';
+import twitterIcon from './twitter.svg';
+import pinterestIcon from './pinterest.svg';
 
 class Footer extends React.Component {
   constructor(props) {

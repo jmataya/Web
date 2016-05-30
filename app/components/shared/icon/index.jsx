@@ -5,6 +5,8 @@
 import React from 'react';
 import InlineSVG from 'svg-inline-react';
 
+import styles from './icon.css';
+
 class Icon extends React.Component {
   constructor(props) {
     super(props);
