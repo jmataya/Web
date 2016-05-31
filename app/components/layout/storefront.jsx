@@ -26,7 +26,7 @@ class Storefront extends React.Component {
             <div className={styles.head}>
               <Hamburger className={styles.hamburger} onClick={this.toggleSidebar} />
               <Logo className={styles.logo} />
-              <UserTools className={styles.userTools} />
+              <UserTools className={styles.tools} />
             </div>
             <Navigation className={styles.navigation} />
             {this.props.children}

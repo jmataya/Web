@@ -1,5 +1,5 @@
-@import "../../styles/media-queries.css";
-@import "../../styles/colors.css";
+@import "media-queries.css";
+@import "variables.css";
 
 .container {
   width: 100%;
@@ -38,20 +38,17 @@
   width: 30%;
 }
 
-.search {
-  & :global(.icon__cnt) {
-    fill: var(--blackish);
-  }
+.logo {
+
+}
+
+.search :global(.icon) svg {
+  fill: var(--blackish);
 }
 
 .tools {
   display: flex;
   justify-content: flex-end;
-}
-
-.logo {
-  width: 415px;
-  height: 20px;
 }
 
 .categories {
@@ -89,11 +86,6 @@
     margin-top: 10px;
     margin-left: var(--grid-margin);
     margin-right: var(--grid-margin);
-  }
-
-  .logo {
-    width: 40px;
-    height: 40px;
   }
 
   .categories {

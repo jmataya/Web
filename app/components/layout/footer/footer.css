@@ -1,7 +1,8 @@
-@import "../../../styles/media-queries.css";
-@import "../../../styles/colors.css";
+@import "media-queries.css";
+@import "variables.css";
+@import "colors.css";
 
-.footer {
+.container {
   background-color: var(--blackish);
   color: var(--whitish);
   height: 350px;
@@ -15,18 +16,20 @@
 }
 
 .socialLink {
+  display: block;
+}
+
+.socialIcon {
   width: 20px;
   height: 20px;
   margin: 0 30px;
-}
 
-.socialIcon, .socialIcon > svg {
-  width: 20px;
-  height: 20px;
-}
-
-.socialIcon > svg {
-  stroke: none;
+  & > svg {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    stroke: none;
+  }
 }
 
 .otherLinks {
@@ -39,16 +42,15 @@
   color: var(--dark-grayish);
   text-decoration: none;
   font-size: 15px;
-  margin: 0 30px;
-}
+  margin: 0 40px;
 
-.otherLink:hover {
-  color: var(--greyish);
+  &:hover {
+    color: var(--greyish);
+  }
 }
-
 
 @media (--small-viewport) {
-  .footer {
+  .container {
     height: 410px;
   }
 

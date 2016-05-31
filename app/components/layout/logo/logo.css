@@ -1,8 +1,26 @@
+@import "media-queries.css";
+
+.container {
+
+}
+
 .logo-link {
   flex: 1;
   text-align: center;
 }
 
 .logo {
-  stroke: none;
+  width: 415px;
+  height: 22.52px;
+
+  & > svg {
+    stroke: none;
+  }
+}
+
+@media (--small-viewport) {
+  .logo {
+    width: 250px;
+    height: 13.56px;
+  }
 }

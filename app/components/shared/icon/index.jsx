@@ -3,6 +3,7 @@
  */
 
 import React from 'react';
+import classNames from 'classnames';
 import InlineSVG from 'svg-inline-react';
 
 import styles from './icon.css';
@@ -12,14 +13,14 @@ class Icon extends React.Component {
     super(props);
 
     this.size = props.size || 's';
-    this.className = `icon icon--${this.size}${props.className ? " " + props.className : ""}`;
+    this.className = classNames(props.className, styles.icon, styles[`icon--${this.size}`]);
   }
 
   render() {
-    const node = (<InlineSVG {...this.props} className={this.className} src={this.props.svg} />);
+    const node = (<InlineSVG {...this.props} className={this.className} element="div" src={this.props.svg} />);
 
     if (this.className.indexOf('spinner') > -1) {
-      return <div className="icon__spinner">{node}</div>
+      return <div className={styles.iconSpinner}>{node}</div>
     }
     return node;
   }

@@ -1,5 +1,7 @@
-@import "../../styles/media-queries.css";
-@import "../../styles/colors.css";
+@import "media-queries.css";
+@import "variables.css";
+@import "colors.css";
+@import "icons.css";
 
 html, body {
   font-size: 16px;

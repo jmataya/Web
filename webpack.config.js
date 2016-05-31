@@ -1,5 +1,5 @@
 var path = require("path");
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   // Set our entry point to the application.
@@ -18,7 +18,7 @@ module.exports = {
     // "require(components/Site)".
     root: [
       path.resolve('./app'),
-      path.resolve('./app/components') // so we don't have to specifiy "components/" each time
+      path.resolve('./app/components') // for convenience when referencing components
     ],
 
     // Include ".jsx" extensions.  Everything else here is the default
@@ -42,17 +42,29 @@ module.exports = {
       // text-webpack-plugin.
       {
         test: /\.css$/,
-        // Note: the 'style' loader is used when css is not extracted.  See
-        // https://github.com/webpack/extract-text-webpack-plugin for more
-        // info. The output file ("style.css") is specified below in the
-        // "plugins" section.
         loader: ExtractTextPlugin.extract(
-          'style',
-          'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]'
+          // The first param a loader to be used when a chunk isn't processed.
+          // This really shouldn't be used.
+          //
+          // `style-loader` loads css files and injects them into the DOM via a
+          // <style> tag.
+          'style-loader',
+
+          [
+            // `css-loader` processes @import and url() directives in your css like
+            // require(). It also implements CSS Modules (read more here:
+            // https://github.com/webpack/css-loader#css-modules) and minifies
+            // css.
+            'css-loader',
+
+            // `postcss-loader` processes files using the PostCSS plugins below.
+            'postcss-loader'
+          ]
         )
       },
 
-      // Inline svg files directly into the DOM
+      // Inline svg files directly into the DOM.  Note: this doesn't work in
+      // css url() references.
       {
         test: /\.svg$/,
         loader: 'svg-inline'
@@ -60,9 +72,30 @@ module.exports = {
     ]
   },
 
+  // Webpack plugins here
   plugins: [
     new ExtractTextPlugin("styles.css")
   ],
+
+  // PostCSS-specific plugins
+  postcss: function(webpack) {
+    return [
+      require('postcss-import')({
+        addDependencyTo: webpack,
+        path: ['app', 'app/components', 'app/styles', 'node_modules'],
+      }),
+      require('postcss-css-variables'),
+      require('lost')({
+        flexbox: 'flex',
+        gutter: '2.4%',
+      }),
+      require('postcss-modules-values'),
+      require('postcss-modules-extract-imports'),
+      require('postcss-modules-local-by-default'),
+      require('postcss-modules-scope'),
+      require('postcss-cssnext')()
+    ];
+  },
 
   // Configuration for the webpack-dev-server.  We explicitly specify a host of
   // 0.0.0.0 (as opposed to localhost) to make the development server
