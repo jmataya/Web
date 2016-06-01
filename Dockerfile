@@ -7,13 +7,15 @@ RUN apt-get install -y nodejs npm
 RUN npm install -g n
 RUN n stable
 
-# Install application dependencies
+# Create a working directory
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 COPY package.json /usr/src/app
+COPY . /usr/src/app
+
+# Install application dependencies
 RUN npm set progress=false
 RUN cd /usr/src/app; npm install
-COPY . /usr/src/app
 
 EXPOSE 8080
 CMD ["npm", "start"]
